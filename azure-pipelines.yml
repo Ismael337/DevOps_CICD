@@ -25,3 +25,14 @@ steps:
     jobType: 'TestAutomation'
     user: 'tech\skonate'
     machine: 'TECH-PO22402NN'
+- task: UiPathPack@3
+  inputs:
+    versionType: 'AutoVersion'
+    projectJsonPath: '$(Build.SourcesDirectory)'
+    orchestratorConnection: 'Con_AzureDevOps_Orchestrator'
+    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
