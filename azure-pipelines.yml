@@ -19,9 +19,9 @@ steps:
   displayName: 'Run a multi-line script'
 - task: UiPathTest@3
   inputs:
-    testTarget: 'TestSet'
+    testTarget: 'TestProject'
     orchestratorConnection: 'Con_AzureDevOps_Orchestrator'
-    testSet: 'TS_CICD'
+    testProjectPath: '$(Build.ArtifactStagingDirectory)'
     folderName: 'MyAUBAY'
 - task: UiPathPack@3
   inputs:
