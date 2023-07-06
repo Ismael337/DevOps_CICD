@@ -23,13 +23,15 @@ steps:
     projectJsonPath: '$(Build.SourcesDirectory)'
     orchestratorConnection: 'Con_AzureDevOps_Orchestrator'
     outputPath: '$(Build.ArtifactStagingDirectory)\Output'
-- task: UiPathTest@3
-  inputs:
-    testTarget: 'TestProject'
-    orchestratorConnection: 'Con_AzureDevOps_Orchestrator'
-    folderName: 'MyAUBAY'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+
+- task: UiPathTest@3
+  inputs:
+    testTarget: 'TestSet'
+    orchestratorConnection: 'Con_AzureDevOps_Orchestrator'
+    folderName: 'MyAUBAY'
+    testReportDestination: '$(Pipeline.Workspqce)\drop\'
