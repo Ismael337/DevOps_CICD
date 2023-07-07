@@ -34,4 +34,4 @@ steps:
     testTarget: 'TestSet'
     orchestratorConnection: 'Con_AzureDevOps_Orchestrator'
     folderName: 'MyAUBAY'
-    testReportDestination: '$(Pipeline.Workspqce)\drop\'
+    testReportDestination: '$(Pipeline.Workspace)\drop\'
